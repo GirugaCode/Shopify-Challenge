@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Create and set the window to be the same size as the screen
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let initialVewController = CollectionsViewController()
+        let navigationController = UINavigationController(rootViewController: initialVewController)
+        window!.rootViewController = navigationController
+        window!.makeKeyAndVisible()
         return true
     }
 
