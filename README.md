@@ -4,7 +4,7 @@ This iOS app was created for the iOS internship position
 
 ## Screenshots
 
-<img src="img/HomeScreen.png" width ="280" height="480"> <img src="img/DetailScreen.png" width ="280" height="480">
+<img src="img/HomeScreen.png" width ="265" height="480"> <img src="img/DetailScreen.png" width ="265" height="480">
 
 
 ## View the Project
