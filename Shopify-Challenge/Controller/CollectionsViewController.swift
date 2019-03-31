@@ -19,7 +19,7 @@ class CollectionsViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
         layout.scrollDirection = .vertical
-        collection.backgroundColor = .gray
+        collection.backgroundColor = #colorLiteral(red: 0.4797628522, green: 0.4728085399, blue: 0.4989538789, alpha: 1)
         collection.isScrollEnabled = true
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -27,24 +27,18 @@ class CollectionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         reloadCollections()
+        setupCollection()
+    }
+    
+    private func setupCollection() {
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
         self.title = "Shopify Collection"
         shopifyCollectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellId)
         view.addSubview(shopifyCollectionView)
-        setupCollection()
-    }
-    
-    
-    private func pushToDetails() {
-        let pushVC = DetailsViewController()
-//        pushVC.collection = self.collectionToPass
-        self.navigationController?.pushViewController(pushVC, animated: true)
-    }
-    
-    private func setupCollection() {
+        
+        
         NSLayoutConstraint.activate([
             shopifyCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
             shopifyCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -100,7 +94,22 @@ extension CollectionsViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        pushToDetails()
+        let pushVC = DetailsViewController()
+        let selectedCollection = collections[indexPath.row]
+        
+        ShopifyServices.shared.getAllCollects(collectionID: selectedCollection.id!) { (collectGetResult) in
+
+            switch collectGetResult {
+            case let .success(getCollect):
+                pushVC.collections = selectedCollection
+                pushVC.collect = getCollect
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(pushVC, animated: true)
+                }
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
 }

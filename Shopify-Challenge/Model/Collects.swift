@@ -11,7 +11,7 @@ import Foundation
 struct Collect: Decodable {
     
     let id: Int?
-    let product_id: String?
+    let product_id: Int?
 }
 
 struct Collects: Decodable {

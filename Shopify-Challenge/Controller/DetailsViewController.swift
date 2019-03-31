@@ -10,17 +10,21 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    private let myArray = ["First","Second","Third"]
     private var productsTableView = UITableView()
     
+    var collections: ShopifyCollections?
     var collect: [Collect]?
     var products = [Product]()
+    
+    var inventoryTotal = 0
     
     private let tableViewCellId = "CustomTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        reloadProducts()
+
     }
     
     private func setupTableView() {
@@ -29,14 +33,18 @@ class DetailsViewController: UIViewController {
         let displayHeight: CGFloat = self.view.frame.height
         
         productsTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
-        productsTableView.register(UITableViewCell.self, forCellReuseIdentifier: tableViewCellId)
+        
+        productsTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: tableViewCellId)
         productsTableView.dataSource = self
         productsTableView.delegate = self
+        self.productsTableView.separatorStyle = .none
         self.view.addSubview(productsTableView)
     }
     
+
+    
     private func reloadProducts() {
-        guard let productId: [String] = collect?.map({ $0.product_id! }) else { return }
+        guard let productId: [String] = collect?.map({ $0.product_id!.toString() }) else { return }
         
         ShopifyServices.shared.getAllProduct(ids: productId) { (productGetResult) in
             switch productGetResult {
@@ -60,16 +68,28 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId) as! CustomTableViewCell
+        let product = products[indexPath.row]
+        let productImageURL = URL(string: (product.image?.src)!)
+        let currentInventory = product.variants
         
+        for varient in currentInventory! {
+            inventoryTotal += varient.inventory_quantity!
+        }
+
+        cell.productTitle.text = product.title
+        cell.productVendor.text = product.vendor
+        cell.productInventory.text = "x\(inventoryTotal) In Stock"
+        cell.productImageView.kf.setImage(with: productImageURL)
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Num: \(indexPath.row)")
-        print("Value: \(myArray[indexPath.row])")
+        print("Value: \(products[indexPath.row])")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 200
     }
 }

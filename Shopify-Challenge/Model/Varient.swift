@@ -9,7 +9,8 @@
 import Foundation
 
 struct Variant: Decodable {
-    let inventoryQuantity: Int
+    let id: Int?
+    let inventory_quantity: Int?
     
     enum variantContainerKeys: String, CodingKey {
         case inventoryQuantity = "inventory_quantity"

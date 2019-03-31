@@ -34,7 +34,7 @@ class CustomTableViewCell: UITableViewCell {
     
     let productTitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
+        label.font = UIFont(name: "Avenir-Heavy", size: 18)
         label.numberOfLines = 0
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ class CustomTableViewCell: UITableViewCell {
     
     let productVendor: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
+        label.font = UIFont(name: "Avenir-Book", size: 14)
         label.numberOfLines = 0
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -59,33 +59,49 @@ class CustomTableViewCell: UITableViewCell {
     
     let productInventory: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
+        label.font = UIFont(name: "Avenir-LightOblique ", size: 10)
         label.numberOfLines = 0
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        setupCell()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupCell()
+        cellStyle()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+    }
+    
+    private func cellStyle() {
+        contentView.layer.cornerRadius = 18
+        contentView.layer.shadowRadius = 2
+        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        contentView.layer.shadowOffset = CGSize(width: 0 , height:2)
+        contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        contentView.layer.borderColor = #colorLiteral(red: 0.974335134, green: 0.5811371803, blue: 0.02610809356, alpha: 1)
+        contentView.layer.borderWidth = 1.4
     }
     
     private func setupCell() {
         addSubview(productDetailsWithImage)
         
         NSLayoutConstraint.activate([
-            productDetailsWithImage.topAnchor.constraint(equalTo: topAnchor),
-            productDetailsWithImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            productDetailsWithImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            productDetailsWithImage.bottomAnchor.constraint(equalTo: bottomAnchor)
+            productDetailsWithImage.topAnchor.constraint(equalTo: topAnchor, constant: 25),
+            productDetailsWithImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            productDetailsWithImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            productDetailsWithImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25)
             ])
     }
 

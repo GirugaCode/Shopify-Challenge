@@ -12,7 +12,7 @@ struct Product: Decodable {
     let title: String?
     let vendor: String?
     let image: Image?
-    let inventory: Variant?
+    let variants: [Variant]?
     
 }
 

@@ -57,7 +57,7 @@ struct ShopifyServices {
             URLQueryItem(name: key, value: value)
         })
         
-        var request = URLRequest(url: (components?.url)!)
+        let request = URLRequest(url: (components?.url)!)
         collectionSession.dataTask(with: request) { (data, response, error) in
             
             if (error == nil) {
