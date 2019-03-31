@@ -9,31 +9,13 @@
 import Foundation
 
 struct Product: Decodable {
-    let title: String
-    let imageURL: String
-    let vendor: String
-    let inventory: Int
+    let title: String?
+    let vendor: String?
+    let image: Image?
+    let inventory: Variant?
     
-    enum productCodingKeys: String, CodingKey {
-        case title
-        case image
-        case variants
-        case vendor
-    }
-    
-    enum imageCodingKey: String, CodingKey {
-        case src
-    }
 }
 
 struct productList: Decodable {
     let products: [Product]
-}
-
-struct Variant: Decodable {
-    let inventoryQuantity: Int
-    
-    enum variantContainerKeys: String, CodingKey {
-        case inventory_quantity
-    }
 }

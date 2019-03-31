@@ -11,23 +11,14 @@ import Foundation
 struct ShopifyCollections: Decodable {
     let id: Int?
     let title: String?
-    let imageURL: String?
+    let image: Image?
     
-    enum CollectionKeys: String, CodingKey {
-        case id
-        case title
-        case image
-    }
-    
-    enum ImageKey: String, CodingKey {
-        case src
-    }
 }
 
 struct CollectionList: Decodable {
     let CustomCollection: [ShopifyCollections]
     
     enum CollectionListKeys: String, CodingKey {
-        case custom_collection
+        case CustomCollection = "custom_collections"
     }
 }
