@@ -12,6 +12,8 @@ public typealias HTTPParameters = [String: Any]?
 
 struct NetworkRequest {
     
+    // Sending Network Request to the Shopify API
+    
     static func configureHTTPRequest(from route: NetworkRoute, with parameters: HTTPParameters) throws -> URLRequest {
         
         guard let url = URL(string: route.rawValue) else { fatalError("Error while unwrapping url")}

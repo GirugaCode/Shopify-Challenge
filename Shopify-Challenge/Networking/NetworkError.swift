@@ -9,6 +9,7 @@
 import Foundation
 
 public enum NetworkError: String, Error {
+    // Edge Cases for errors while doing URL Sessions
     
     case parametersNil = "Error Found : Parameters URL were nil."
     case encodingFailed = "Error Found : Parameter Encoding failed."

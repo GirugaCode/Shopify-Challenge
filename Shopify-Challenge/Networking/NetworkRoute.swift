@@ -9,6 +9,7 @@
 import Foundation
 
 public enum NetworkRoute: String {
+    // Enum for the three Shopify API URLs for the challenge
     
     case collectionList = "https://shopicruit.myshopify.com/admin/custom_collections.json"
     case collectsList = "https://shopicruit.myshopify.com/admin/collects.json"

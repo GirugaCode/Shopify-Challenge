@@ -34,6 +34,8 @@ class DetailsViewController: UIViewController {
         
         productsTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         
+        self.title = "Products"
+        
         productsTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: tableViewCellId)
         productsTableView.dataSource = self
         productsTableView.delegate = self

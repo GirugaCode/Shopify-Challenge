@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Finds the result of the network request to ensure its either sucessful or failure.
+
 enum Result<T> {
     case success(T)
     case failure(Error)

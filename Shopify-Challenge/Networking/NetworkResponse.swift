@@ -9,7 +9,7 @@
 import Foundation
 
 struct NetworkResponse {
-    
+    // Recieves the Network Response from the Shopify API
     
     static func handleNetworkResponse(for response: HTTPURLResponse?) -> Result<String>{
         

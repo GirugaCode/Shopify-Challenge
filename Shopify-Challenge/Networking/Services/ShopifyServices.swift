@@ -13,6 +13,7 @@ struct ShopifyServices {
     static let shared = ShopifyServices()
     let collectionSession = URLSession(configuration: .default)
     
+    // Network Closure to recieve all Shopify Collections
     func getAllCollections(_ completion: @escaping(Result<[ShopifyCollections]>) -> ()){
         
         do {
@@ -45,6 +46,8 @@ struct ShopifyServices {
         }
     }
     
+    // Network Closure to recieve all Shopify Collections IDs
+
     func getAllCollects(collectionID: Int,_ completion: @escaping(Result<[Collect]>) -> ()) {
         
         let parameters = [
@@ -80,6 +83,8 @@ struct ShopifyServices {
             }.resume()
     }
     
+    // Network Closure to recieve all Shopify Products
+
     func getAllProduct(ids: [String], _ completion: @escaping(Result<[Product]>) -> ()) {
         
         var compactedIds = ""
