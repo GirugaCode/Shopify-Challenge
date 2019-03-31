@@ -12,7 +12,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 22)
+        label.font = UIFont(name: "Avenir-Heavy", size: 22)
         label.numberOfLines = 0
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false

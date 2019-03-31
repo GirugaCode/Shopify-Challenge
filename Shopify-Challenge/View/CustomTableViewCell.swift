@@ -90,7 +90,7 @@ class CustomTableViewCell: UITableViewCell {
         contentView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         contentView.layer.shadowOffset = CGSize(width: 0 , height:2)
         contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        contentView.layer.borderColor = #colorLiteral(red: 0.974335134, green: 0.5811371803, blue: 0.02610809356, alpha: 1)
+        contentView.layer.borderColor = #colorLiteral(red: 0.4797628522, green: 0.4728085399, blue: 0.4989538789, alpha: 1)
         contentView.layer.borderWidth = 1.4
     }
     
