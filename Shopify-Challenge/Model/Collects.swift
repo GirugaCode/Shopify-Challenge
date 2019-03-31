@@ -9,10 +9,13 @@
 import Foundation
 
 struct Collect: Decodable {
-    let product_id: Int?
+    
+    let id: Int?
+    let product_id: String?
 }
 
-struct collectList: Decodable {
-    let collects: [Collect]
+struct Collects: Decodable {
+    
+    let collects: [Collect]?
 }
 

@@ -18,7 +18,7 @@ struct ShopifyCollections: Decodable {
 struct CollectionList: Decodable {
     let CustomCollection: [ShopifyCollections]
     
-    enum CollectionListKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case CustomCollection = "custom_collections"
     }
 }

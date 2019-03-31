@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionsViewController: UIViewController {
     
     let collectionViewCellId = "CustomCell"
-    var dummyData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48"]
     
-    let shopifyCollection: UICollectionView = {
+    var collections = [ShopifyCollections]()
+    
+    let shopifyCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
         layout.scrollDirection = .vertical
@@ -26,12 +28,15 @@ class CollectionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shopifyCollection.delegate = self
-        shopifyCollection.dataSource = self
-        shopifyCollection.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellId)
-        view.addSubview(shopifyCollection)
+        reloadCollections()
+        shopifyCollectionView.delegate = self
+        shopifyCollectionView.dataSource = self
+        self.title = "Shopify Collection"
+        shopifyCollectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellId)
+        view.addSubview(shopifyCollectionView)
         setupCollection()
     }
+    
     
     private func pushToDetails() {
         let pushVC = DetailsViewController()
@@ -41,12 +46,26 @@ class CollectionsViewController: UIViewController {
     
     private func setupCollection() {
         NSLayoutConstraint.activate([
-            shopifyCollection.topAnchor.constraint(equalTo: view.topAnchor),
-            shopifyCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            shopifyCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            shopifyCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            shopifyCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            shopifyCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            shopifyCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            shopifyCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         
+    }
+    
+    private func reloadCollections() {
+        ShopifyServices.shared.getAllCollections { (collectionsGetResult) in
+            switch collectionsGetResult {
+            case let .success(newCollections):
+                self.collections = newCollections
+            case let .failure(error):
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self.shopifyCollectionView.reloadData()
+            }
+        }
     }
 
 }
@@ -54,13 +73,16 @@ class CollectionsViewController: UIViewController {
 
 extension CollectionsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyData.count
+        return collections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = shopifyCollection.dequeueReusableCell(withReuseIdentifier: collectionViewCellId, for: indexPath) as! CustomCollectionViewCell
+        let cell = shopifyCollectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellId, for: indexPath) as! CustomCollectionViewCell
+        let collection = collections[indexPath.row]
+        let collectionImageURL = URL(string: (collection.image?.src)!)
         cell.backgroundColor = .white
-        cell.titleLabel.text = self.dummyData[indexPath.item]
+        cell.titleLabel.text = collection.title
+        cell.collectionImageView.kf.setImage(with: collectionImageURL)
         return cell
     }
     

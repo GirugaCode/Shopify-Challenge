@@ -2,4 +2,132 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-Challenge/Controller/DetailsViewController.swift"
+            timestampString = "575725639.75366"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "DetailsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopify_Challenge.DetailsViewController.products.getter : Swift.Array&lt;Shopify_Challenge.Product&gt;"
+                  moduleName = "Shopify-Challenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryannguyen/Desktop/Make%20School%20Code/Third%20Term/MOB%201.3/Shopify-Challenge/Shopify-Challenge/Controller/DetailsViewController.swift"
+                  timestampString = "575725590.640234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopify_Challenge.DetailsViewController.products.setter : Swift.Array&lt;Shopify_Challenge.Product&gt;"
+                  moduleName = "Shopify-Challenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryannguyen/Desktop/Make%20School%20Code/Third%20Term/MOB%201.3/Shopify-Challenge/Shopify-Challenge/Controller/DetailsViewController.swift"
+                  timestampString = "575725590.642531"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopify_Challenge.DetailsViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Shopify_Challenge.DetailsViewController"
+                  moduleName = "Shopify-Challenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryannguyen/Desktop/Make%20School%20Code/Third%20Term/MOB%201.3/Shopify-Challenge/Shopify-Challenge/Controller/DetailsViewController.swift"
+                  timestampString = "575725590.6449831"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "493">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopify_Challenge.DetailsViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Shopify_Challenge.DetailsViewController&gt;"
+                  moduleName = "Shopify-Challenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryannguyen/Desktop/Make%20School%20Code/Third%20Term/MOB%201.3/Shopify-Challenge/Shopify-Challenge/Controller/DetailsViewController.swift"
+                  timestampString = "575725590.647447"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "446">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-Challenge/Controller/DetailsViewController.swift"
+            timestampString = "575725639.754084"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-Challenge/Controller/DetailsViewController.swift"
+            timestampString = "575725639.7543581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "reloadProducts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-Challenge/Controller/DetailsViewController.swift"
+            timestampString = "575725639.754601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "reloadProducts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
