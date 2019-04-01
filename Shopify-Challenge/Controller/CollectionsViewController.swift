@@ -32,6 +32,7 @@ class CollectionsViewController: UIViewController {
     }
     
     private func setupCollection() {
+        
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
         self.title = "Shopify Collection"
@@ -75,8 +76,11 @@ extension CollectionsViewController: UICollectionViewDataSource, UICollectionVie
         let collection = collections[indexPath.row]
         let collectionImageURL = URL(string: (collection.image?.src)!)
         cell.backgroundColor = .white
+        cell.layer.cornerRadius = 20
         cell.titleLabel.text = collection.title
         cell.collectionImageView.kf.setImage(with: collectionImageURL)
+        
+
         return cell
     }
     
